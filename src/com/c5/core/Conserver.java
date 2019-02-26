@@ -2,17 +2,21 @@ package com.c5.core;
 
 import java.util.Date;
 
+import com.c5.enumeration.emballage;
+
 public class Conserver extends Alimentaire {
 	private double stock;	
 	private Date dateFabrication;
-	private enum emballage{liquide,embalee}
+	//private enum emballage{liquide,embalee}
+	private emballage emb;
 		
 	public Conserver(int idArticle, String nomArticle, double prixArticle, String typeArticle, String fournisseur,
-			Date dateExpiration,Date dateFabrication,emballage emballage) {
+			Date dateExpiration,Date dateFabrication,emballage emballage, emballage emb) {
 		
 		super(idArticle, nomArticle, prixArticle, typeArticle, fournisseur, dateExpiration);
 		this.dateFabrication=dateFabrication;
-		emballage=emballage;
+		//emballage=emballage;
+		this.emb=emb;
 	
 	}
 
