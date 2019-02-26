@@ -1,5 +1,7 @@
 package com.c5.core;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import com.c5.enumeration.Nature;
@@ -35,4 +37,6 @@ public class Frais extends Alimentaire {
 	public double prixFrais() {
 		return getPrixArticle()*poids;
 	}
+
+
 }
