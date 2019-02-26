@@ -6,13 +6,14 @@ import com.c5.enumeration.Nature;
 
 public class Frais extends Alimentaire {
 	private double poidStock;
-	//private enum nature{legumes,fruit};
+	private double poids;
 	private Nature nature;
 
 	public Frais(int idArticle, String nomArticle, double prixArticle, String typeArticle, String fournisseur,
-			Date dateExpiration,Nature nature) {
+			Date dateExpiration,Nature nature,double poids) {
 		super(idArticle, nomArticle, prixArticle, typeArticle, fournisseur, dateExpiration);
 		this.nature=nature;
+		this.poids=poids;
 	}
 
 	public double getPoidStock() {
@@ -23,4 +24,15 @@ public class Frais extends Alimentaire {
 		this.poidStock = poidStock;
 	}
 
+	public double getPoids() {
+		return poids;
+	}
+
+	public void setPoids(double poids) {
+		this.poids = poids;
+	}
+
+	public double prixFrais() {
+		return getPrixArticle()*poids;
+	}
 }
