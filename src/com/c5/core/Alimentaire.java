@@ -18,6 +18,7 @@ public class Alimentaire extends Article {
 		return dateExpiration;
 	}
 
+	
 	public void setDateExpiration(Date dateExpiration) {
 		this.dateExpiration = dateExpiration;
 	}

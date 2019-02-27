@@ -1,4 +1,6 @@
-package com.c5.core;
+package com.c5.interfaces;
+
+import com.c5.core.Vetement;
 
 public interface vetementOperations {
 	
