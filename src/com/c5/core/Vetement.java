@@ -4,6 +4,7 @@ import com.c5.enumeration.Couleur;
 import com.c5.enumeration.Sexe;
 
 public class Vetement extends Article {
+	//private int idVetement;
 	private String marque;
 	private String tissu;
 	private Sexe sexe;

@@ -17,7 +17,6 @@ public class Conserver extends Alimentaire {
 		this.dateFabrication=dateFabrication;
 		//emballage=emballage;
 		this.emb=emb;
-	
 	}
 
 	public Date getDateFabrication() {

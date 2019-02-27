@@ -23,6 +23,4 @@ public class Alimentaire extends Article {
 		this.dateExpiration = dateExpiration;
 	}
 
-	
-
 }
