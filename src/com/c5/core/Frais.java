@@ -10,7 +10,7 @@ public class Frais extends Alimentaire {
 	private double poidStock;
 	private double poids;
 	private Nature nature;
-
+	
 	public Frais(int idArticle, String nomArticle, double prixArticle, String typeArticle, String fournisseur,
 			Date dateExpiration,Nature nature,double poids) {
 		super(idArticle, nomArticle, prixArticle, typeArticle, fournisseur, dateExpiration);
@@ -37,6 +37,5 @@ public class Frais extends Alimentaire {
 	public double prixFrais() {
 		return getPrixArticle()*poids;
 	}
-
 
 }

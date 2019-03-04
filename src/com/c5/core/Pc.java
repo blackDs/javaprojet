@@ -5,11 +5,11 @@ import com.c5.enumeration.Processeur;
 public class Pc extends Electronique{
 	
 	private int Ram;
-	private Processeur processeur;
+	private String processeur;
 	private int disqueDur;
 
 	public Pc(int idArticle, String nomArticle, double prixArticle, String typeArticle, String fournisseur,
-			String Ecran,int Ram,Processeur processeur,int disqueDur) {
+			String Ecran,int Ram,String processeur,int disqueDur) {
 		super(idArticle, nomArticle, prixArticle, typeArticle, fournisseur,Ecran);
 		this.Ram=Ram;
 		this.setProcesseur(processeur);
@@ -25,11 +25,11 @@ public class Pc extends Electronique{
 		Ram = ram;
 	}
 
-	public Processeur getProcesseur() {
+	public String getProcesseur() {
 		return processeur;
 	}
 
-	public void setProcesseur(Processeur processeur) {
+	public void setProcesseur(String processeur) {
 		this.processeur = processeur;
 	}
 

@@ -1,18 +1,26 @@
 package com.c5.core;
 
-import com.c5.enumeration.Couleur;
-import com.c5.enumeration.Sexe;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import com.c5.database.ConnectionDB;
+
 
 public class Vetement extends Article {
+	
+	
 	//private int idVetement;
-	private String marque;
-	private String tissu;
-	private Sexe sexe;
-	private Couleur couleur;
-	private int promotion;
+	public String marque;
+	public String tissu;
+	public String sexe;
+	public String couleur;
+	public int promotion;
+	Article a;
+	
 	
 	public Vetement(int idArticle, String nomArticle, double prixArticle, String typeArticle,
-			String fournisseur,String marque,String tissu,Sexe sexe,Couleur couleur,int promotion) {
+			String fournisseur,String marque,String tissu,String sexe,String couleur,int promotion) {
 		
 		super(idArticle, nomArticle, prixArticle, typeArticle, fournisseur);
 		this.setMarque(marque);
@@ -20,14 +28,18 @@ public class Vetement extends Article {
 		this.setSexe(sexe);
 		this.couleur=couleur;
 		this.promotion=promotion;
+	}
+
+	public Vetement() {
+		
 		
 	}
 
-	public Couleur getCouleur() {
+	public String getCouleur() {
 		return couleur;
 	}
 
-	public void setCouleur(Couleur couleur) {
+	public void setCouleur(String couleur) {
 		this.couleur = couleur;
 	}
 
@@ -47,11 +59,11 @@ public class Vetement extends Article {
 		this.tissu = tissu;
 	}
 
-	public Sexe getSexe() {
+	public String getSexe() {
 		return sexe;
 	}
 
-	public void setSexe(Sexe sexe) {
+	public void setSexe(String sexe) {
 		this.sexe = sexe;
 	}
 
@@ -62,6 +74,5 @@ public class Vetement extends Article {
 	public void setPromotion(int promotion) {
 		this.promotion = promotion;
 	}
-	
 
 }

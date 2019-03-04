@@ -1,22 +1,32 @@
 package com.c5.core;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import com.c5.database.ConnectionDB;
+
 public class Article {
 	
-		private int 	idArticle  ;
-		private String 	nomArticle ;
-		private double 	prixArticle;
-		private String 	typeArticle;
-		private String  fournisseur;
+		public int 	idArticle  ;
+		public String 	nomArticle ;
+		public double 	prixArticle;
+		public String 	typeArticle;
+		public String  fournisseur;
 		
 		
 		public Article(int idArticle, String nomArticle,
 					   double prixArticle, String typeArticle, String fournisseur) {
-			
 			this.idArticle = idArticle;
 			this.nomArticle = nomArticle;
 			this.prixArticle = prixArticle;
 			this.typeArticle = typeArticle;
 			this.fournisseur = fournisseur;
+		}
+
+
+		public Article() {
+			// TODO Auto-generated constructor stub
 		}
 
 
@@ -75,8 +85,5 @@ public class Article {
 			return "Article ID = " + idArticle + ", nom = " + nomArticle + ", prix = " + prixArticle
 					+ ", type = " + typeArticle + ", fournisseur = " + fournisseur ;
 		}
-
 		
-		
-		
-}
+		}
