@@ -11,10 +11,6 @@ public class Chemise extends Vetement{
 		this.taille=taille;
 	}
 
-	public Chemise() {
-		// TODO Auto-generated constructor stub
-	}
-
 	public String getTaille() {
 		return taille.toString();
 	}
