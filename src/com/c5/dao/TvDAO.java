@@ -22,8 +22,6 @@ public class TvDAO implements IDao<Tv>{
 		
 	}
 
-	
-
 	@Override
 	public void add(Tv t) {
 		eldao.add(t);

@@ -2,21 +2,23 @@ package com.c5.core;
 
 import java.util.Date;
 
+import com.c5.enumeration.Sexe;
 import com.c5.enumeration.emballage;
 
 public class Conserver extends Alimentaire {
 	private double stock;	
 	private Date dateFabrication;
 	//private enum emballage{liquide,embalee}
-	private emballage emb;
+	private String emballage;
+	//String dateFormat = "dd/MM/yyyy";
 		
 	public Conserver(int idArticle, String nomArticle, double prixArticle, String typeArticle, String fournisseur,
-			Date dateExpiration,Date dateFabrication,emballage emballage, emballage emb) {
+			Date dateExpiration,double stock,Date dateFabrication,String emballage) {
 		
 		super(idArticle, nomArticle, prixArticle, typeArticle, fournisseur, dateExpiration);
+		this.stock=stock;
 		this.dateFabrication=dateFabrication;
-		//emballage=emballage;
-		this.emb=emb;
+		this.setEmballage(emballage);
 	}
 
 	public Date getDateFabrication() {
@@ -35,4 +37,20 @@ public class Conserver extends Alimentaire {
 		this.stock = stock;
 	}
 
+	public String getEmballage() {
+		return emballage;
+	}
+
+	public void setEmballage(String emballage) {
+		this.emballage = emballage;
+	}
+
+	@Override
+	public String toString() {
+		return super.toString()+"Conserver [stock=" + stock + ", dateFabrication=" + dateFabrication + ", emballage=" + emballage;
+	}
+	
+	
+ 
+  
 }

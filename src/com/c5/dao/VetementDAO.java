@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import com.c5.core.Chemise;
 import com.c5.core.Vetement;
 import com.c5.dao.interfaces.IDao;
 import com.c5.database.ConnectionDB;
@@ -76,8 +77,25 @@ public class VetementDAO implements IDao<Vetement> {
 
 	@Override
 	public ArrayList<Vetement> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<Vetement> listVetement = new ArrayList<>();
+		query ="SELECT idArticle,nomArticle,prixArticle,typeArticle,fournisseur,marque,tissu,sexe,couleur,promotion,taille "
+				+ "from Article a,Vetement v "
+				 + "where a.idArticle=v.idVetement";
+		PreparedStatement stm;
+		try {
+			stm = connect.prepareStatement(query);
+			ResultSet rs = stm.executeQuery(query);
+			while(rs.next())
+			{
+				listVetement.add(new Vetement(rs.getInt("idArticle"),rs.getString("nomArticle"),rs.getDouble("prixArticle")
+						,rs.getString("typeArticle"),rs.getString("fournisseur"),rs.getString("marque"),rs.getString("tissu")
+						,rs.getString("Sexe"),rs.getString("couleur"),rs.getInt("promotion")));
+			}
+		} catch(SQLException e){
+			e.printStackTrace();
+		}
+		return listVetement;
+	}
 	}
 	
 

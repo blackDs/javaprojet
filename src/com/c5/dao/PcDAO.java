@@ -1,3 +1,4 @@
+
 package com.c5.dao;
 
 import java.sql.Connection;
@@ -60,7 +61,8 @@ public class PcDAO implements IDao<Pc>{
 	@Override
 	public void update(Pc t) {
 		eldao.update(t);
-		String query="UPDATE Pc SET Processeur='"+t.getProcesseur()+"'WHERE ID_Pc='"+t.getIdArticle()+"'";
+		String query="UPDATE Pc SET Processeur='"+t.getProcesseur()+"',disque_dur='"+t.getDisqueDur()
+		+"'WHERE ID_Pc='"+t.getIdArticle()+"'";
 		PreparedStatement stmt;
 		try {
 			stmt=connect.prepareStatement(query);
@@ -95,9 +97,6 @@ public class PcDAO implements IDao<Pc>{
 			e.printStackTrace();
 		}
 	
-		return listTv;
+		return listPc;
 	}
-
-	
-
 }

@@ -4,16 +4,18 @@ import java.util.ArrayList;
 
 import com.c5.core.Chaussette;
 import com.c5.core.Chemise;
+import com.c5.core.Conserver;
 import com.c5.core.Pantalon;
 import com.c5.core.Tv;
 import com.c5.dao.ChausseteDAO;
 import com.c5.dao.ChemiseDAO;
 import com.c5.dao.PantalonDAO;
 import com.c5.dao.TvDAO;
+import com.c5.dao.ConserverDAO;
 
 public class main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		Chemise ch = new Chemise(10,"nom",999,"type","celio","celioo","coton","H","rouge",45,25);
 		ChemiseDAO chd = new ChemiseDAO();
 		chd.update(ch);
@@ -40,7 +42,7 @@ public class main {
 		Chaussette ch1 = new Chaussette(5000,"nom",50,"chauss","nike","nike","sport","H","blanc",40,3);
 		ChausseteDAO chdao=new ChausseteDAO();
 		//chdao.update(ch1);
-		ArrayList<Pantalon> pantalons=new ArrayList<>();
+	/*	ArrayList<Pantalon> pantalons=new ArrayList<>();
 		pantalons.addAll(pd.getAll());
 		for (Pantalon p:pantalons)
 		{
@@ -55,6 +57,18 @@ public class main {
 		for (Tv t:Tvs)
 		{
 			System.out.println(tv);
+		}*/
+		
+		//Conserver con=new Conserver(3, "nom",1.1 , "xx",null, 10-03-03, 1.1,null, "xxxx");
+		java.util.Date uDate = new java.util.Date();
+		Conserver con = new Conserver(7, "nom", 0, "type", "fournis",uDate, 0, uDate, "emb");
+		ConserverDAO conDAO=new ConserverDAO();
+		//conDAO.add(con);
+		ArrayList<Conserver> Conservers=new ArrayList<>();
+		Conservers.addAll(conDAO.getAll());
+		for (Conserver c:Conservers)
+		{
+			System.out.println(c);
 		}
 	}
 }

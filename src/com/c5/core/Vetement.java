@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import com.c5.database.ConnectionDB;
+import com.c5.enumeration.Sexe;
 
 
 public class Vetement extends Article {

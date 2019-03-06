@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 
 import com.c5.core.Chemise;
@@ -28,7 +27,7 @@ public class ChemiseDAO implements IDao<Chemise> {
 		try{
 			stm = connect.prepareStatement(query);
 			stm.setInt(1, ch.getIdArticle());
-			stm.setInt(2, ch.getTaille());
+			stm.setString(2, ch.getTaille());
 			if(stm.executeUpdate()>0)
 			{
 				System.out.println("A new Chemise is added");
@@ -73,7 +72,6 @@ public class ChemiseDAO implements IDao<Chemise> {
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-		
 	}
 
 	@Override
@@ -87,16 +85,20 @@ public class ChemiseDAO implements IDao<Chemise> {
 			stm = connect.prepareStatement(query);
 			ResultSet rs = stm.executeQuery(query);
 			while(rs.next())
-			{
+			{/*
 				listChemises.add(new Chemise(rs.getInt("idArticle"),rs.getString("nomArticle"),rs.getDouble("prixArticle")
 						,rs.getString("typeArticle"),rs.getString("fournisseur"),rs.getString("marque"),rs.getString("tissu")
-						,rs.getString("sexe"),rs.getString("couleur"),rs.getInt("promotion"),rs.getInt("taille")));
+						,rs.getString("Sexe"),rs.getString("couleur"),rs.getInt("promotion"),setTaille(rs.getString("taille"))));
+			*/
+				Chemise ch= new Chemise();
+				ch.setIdArticle(rs.getInt("idArticle"));
+				ch.setTaille(rs.getString("taille"));
+				listChemises.add(ch);
+				
 			}
 		} catch(SQLException e){
 			e.printStackTrace();
 		}
-	
 		return listChemises;
 	}
-
 }

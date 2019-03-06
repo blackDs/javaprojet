@@ -9,13 +9,14 @@ import com.c5.enumeration.Nature;
 public class Frais extends Alimentaire {
 	private double poidStock;
 	private double poids;
-	private Nature nature;
+	private String nature;
 	
 	public Frais(int idArticle, String nomArticle, double prixArticle, String typeArticle, String fournisseur,
-			Date dateExpiration,Nature nature,double poids) {
+			Date dateExpiration,String nature,double poids,double poidStock) {
 		super(idArticle, nomArticle, prixArticle, typeArticle, fournisseur, dateExpiration);
-		this.nature=nature;
+		this.setNature(nature);
 		this.poids=poids;
+		this.poidStock=poidStock;
 	}
 
 	public double getPoidStock() {
@@ -36,6 +37,14 @@ public class Frais extends Alimentaire {
 
 	public double prixFrais() {
 		return getPrixArticle()*poids;
+	}
+
+	public String getNature() {
+		return nature;
+	}
+
+	public void setNature(String nature) {
+		this.nature = nature;
 	}
 
 }

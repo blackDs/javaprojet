@@ -68,7 +68,8 @@ public class PantalonDAO implements IDao<Pantalon>{
 		PreparedStatement stmt;
 		 try {
 				stmt = connect.prepareStatement(query);
-				stmt.executeUpdate();
+				if(stmt.executeUpdate()>0)
+					System.out.println("Pantalon Updated");
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}

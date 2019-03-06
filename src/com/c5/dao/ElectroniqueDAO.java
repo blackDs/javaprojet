@@ -2,10 +2,12 @@ package com.c5.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.c5.core.Electronique;
+import com.c5.core.Tv;
 import com.c5.dao.interfaces.IDao;
 import com.c5.database.ConnectionDB;
 
@@ -70,8 +72,25 @@ public class ElectroniqueDAO implements IDao<Electronique>{
 	
 	@Override
 	public ArrayList getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<Electronique> listElectronique = new ArrayList<>();
+		query ="SELECT idArticle,nomArticle,prixArticle,typeArticle,fournisseur,Ecran"
+				+ "from Article a,Electronique e "
+				 + "where a.idArticle=e.id_electronique";
+		PreparedStatement stm;
+		try {
+			stm = connect.prepareStatement(query);
+			ResultSet rs = stm.executeQuery(query);
+			while(rs.next())
+			{
+				listElectronique.add(new Electronique(rs.getInt("idArticle"),rs.getString("nomArticle"),rs.getDouble("prixArticle")
+						,rs.getString("typeArticle"),rs.getString("fournisseur"),rs.getString("Ecran")));
+			}
+		} catch(SQLException e){
+			e.printStackTrace();
+		}
+	
+		return listElectronique;
+	}
 	}
 
 }
